@@ -6,6 +6,9 @@ from os import listdir, walk
 from os.path import isfile, join
 import xml.etree.ElementTree as et
 from pytube import YouTube
+import tkinter
+from tkinter import filedialog
+import os
 
 YELLOW = Fore.YELLOW
 MAGENTA = Fore.MAGENTA
@@ -36,15 +39,21 @@ def router(output):
         outputB = input("Outil sélectionné : ")
         link = input(BRIGHT + YELLOW + "[" +RED + "/" +YELLOW + "]" +RESET + " - Link : ")
         yt = YouTube(link)
+        print(BRIGHT + YELLOW + "[" +MAGENTA + "*" +YELLOW + "]" +RESET + " - Download : "+yt.title)
+        print(BRIGHT + YELLOW + "[" +MAGENTA + "*" +YELLOW + "]" +RESET + " - Duration : ",yt.length , "s")
         if outputB == "1":
-            print(BRIGHT + YELLOW + "[" +MAGENTA + "*" +YELLOW + "]" +RESET + " - Download : "+yt.title)
-            print(BRIGHT + YELLOW + "[" +MAGENTA + "*" +YELLOW + "]" +RESET + " - Duration : ",yt.length , "s")
             for i in yt.streams:
                 print(BRIGHT + YELLOW + "[" +GREEN + "+" +YELLOW + "]" +RESET + " ",i)
                 
         if outputB == "2":
+            root = tkinter.Tk()
+            root.withdraw() #use to hide tkinter window
+            currdir = os.getcwd()
+            tempdir = filedialog.askdirectory(parent=root, initialdir=currdir, title='Please select a directory')
+            ys.download(tempdir)
+            print(BRIGHT + YELLOW + "[" +CYAN + "#" +YELLOW + "]" +RESET + " - Downloading... : ")
             ys = yt.streams.get_audio_only()
-            ys.download()
+            print(BRIGHT + YELLOW + "[" +GREEN + "+" +YELLOW + "]" +RESET + " - Done")
             
             
         

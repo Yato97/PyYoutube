@@ -9,3 +9,8 @@ pip install pytube3
 ```bash
 pip install colorama
 ```
+
+### TK
+```bash
+pip install tk
+```
