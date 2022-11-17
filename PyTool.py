@@ -5,6 +5,7 @@ from colorama import Fore, Style
 from os import listdir, walk
 from os.path import isfile, join
 import xml.etree.ElementTree as et
+from pytube import YouTube
 
 YELLOW = Fore.YELLOW
 MAGENTA = Fore.MAGENTA
@@ -17,7 +18,7 @@ CYAN = Fore.CYAN
 list_repo = []
 def init_menu():
     print(BRIGHT + MAGENTA + "------------- PyTool -------------")
-    print(BRIGHT + YELLOW + "[" +MAGENTA + "1" +YELLOW + "]" +RESET + " - Ajouter header XML recursif")
+    print(BRIGHT + YELLOW + "[" +MAGENTA + "1" +YELLOW + "]" +RESET + " - Youtube Tools")
     print(BRIGHT + YELLOW + "[" +MAGENTA + "2" +YELLOW + "]" +RESET + " - TOOL2")
     print(BRIGHT + YELLOW + "[" +MAGENTA + "3" +YELLOW + "]" +RESET + " - TOOL3")
     print(BRIGHT + YELLOW + "[" +MAGENTA + "4" +YELLOW + "]" +RESET + " - TOOL4")
@@ -28,7 +29,25 @@ def init_menu():
 def router(output):
     # Output to the terminal is desired.
     if output == "1":
-        print("\n"+BRIGHT + CYAN + "------------- XML TOOLS RECURSIF -------------"+ RESET)
+        print("\n"+BRIGHT + CYAN + "------------- YOUTUBE TOOLS -------------"+ RESET)
+        print(BRIGHT + YELLOW + "[" +CYAN + "1" +YELLOW + "]" +RESET + " - Avaible version")
+        print(BRIGHT + YELLOW + "[" +CYAN + "2" +YELLOW + "]" +RESET + " - Download music only")
+        print(BRIGHT + YELLOW + "[" +CYAN + "3" +YELLOW + "]" +RESET + " - Download video")
+        outputB = input("Outil sélectionné : ")
+        link = input(BRIGHT + YELLOW + "[" +RED + "/" +YELLOW + "]" +RESET + " - Link : ")
+        yt = YouTube(link)
+        if outputB == "1":
+            print(BRIGHT + YELLOW + "[" +MAGENTA + "*" +YELLOW + "]" +RESET + " - Download : "+yt.title)
+            print(BRIGHT + YELLOW + "[" +MAGENTA + "*" +YELLOW + "]" +RESET + " - Duration : ",yt.length , "s")
+            for i in yt.streams:
+                print(BRIGHT + YELLOW + "[" +GREEN + "+" +YELLOW + "]" +RESET + " ",i)
+                
+        if outputB == "2":
+            ys = yt.streams.get_audio_only()
+            ys.download()
+            
+            
+        
         
     if output == "2":
         print("\n"+BRIGHT + CYAN + "------------- FILE RESEARCHER -------------"+ RESET)
