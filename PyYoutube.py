@@ -29,6 +29,7 @@ def init_menu():
     print(BRIGHT + YELLOW + "[" +CYAN + "4" +YELLOW + "]" +RESET + " - Download video by ITAG")
     print(BRIGHT + YELLOW + "[" +CYAN + "5" +YELLOW + "]" +RESET + " - Parse playlist")
     print(BRIGHT + YELLOW + "[" +CYAN + "6" +YELLOW + "]" +RESET + " - Download playlist music only")
+    print(BRIGHT + YELLOW + "[" +CYAN + "7" +YELLOW + "]" +RESET + " - Download playlist video")
     output = input("Outil sélectionné : ")
     return output
 
@@ -58,13 +59,20 @@ def router(output):
             for i in yt.videos:
                 print(BRIGHT + YELLOW + "[" +GREEN + "+" +YELLOW + "]" +RESET + " ",i.title)
                 print(BRIGHT + YELLOW + "[" +CYAN + "-" +YELLOW + "]" +RESET + " ",i.embed_url)
-        print(BRIGHT + YELLOW + "[" +GREEN + "+" +YELLOW + "]" +RESET + " - Done")
         
         if output == "6":
             yt, tempdir = selectPlaylist(True)
             for i in yt.videos:
                 print(BRIGHT + YELLOW + "[" +GREEN + "+" +YELLOW + "]" +RESET + " ",i.title)
                 ys = i.streams.get_audio_only()
+                ys.download(tempdir)
+
+        
+        if output == "7":
+            yt, tempdir = selectPlaylist(True)
+            for i in yt.videos:
+                print(BRIGHT + YELLOW + "[" +GREEN + "+" +YELLOW + "]" +RESET + " ",i.title)
+                ys = i.streams.get_highest_resolution()
                 ys.download(tempdir)
         print(BRIGHT + YELLOW + "[" +GREEN + "+" +YELLOW + "]" +RESET + " - Done")
         
