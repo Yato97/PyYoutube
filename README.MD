@@ -1,4 +1,7 @@
 # PyYoutube
+<a href="#license"><img src="https://img.shields.io/badge/License-MIT-green" alt="License"></a>
+
+
 ![](res/menu.png)
 
 Un petit outil permettant de télécharger des musiques / vidéos / playlist entière, par défaut télécharge dans la meilleure résolution / qualité audio disponible.
