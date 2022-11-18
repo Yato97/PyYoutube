@@ -9,9 +9,9 @@ Un petit outil permettant de télécharger des musiques / vidéos / playlist ent
 Pour télécharger dans un autre format, utiliser le premier outil `Avaible version` afin de voir la liste des formats disponible d'une vidéo, puis avec l'outil 4 `Download video by itag` entrer le itag voulu. Enjoy :)
 ## Dependencies 
 
-### pytube3
+### pytube
 ```bash
-pip install pytube3
+pip install pytub
 ```
 ### Colorama
 ```bash
