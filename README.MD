@@ -1,4 +1,4 @@
-# PyTool
+# PyYoutube
 ![](res/menu.png)
 
 Un petit outil permettant de télécharger des musiques / vidéos / playlist entière, par défaut télécharge dans la meilleure résolution / qualité audio disponible.
