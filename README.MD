@@ -22,3 +22,20 @@ pip install colorama
 ```bash
 pip install tk
 ```
+
+## Install and usage
+
+### Clone
+```git
+git clone https://github.com/Yato97/PyYoutube.git
+```
+
+### Change directory
+```bash
+cd /PyYoutube
+```
+
+### Start 
+```bash
+py .\PyYoutube.py
+```
