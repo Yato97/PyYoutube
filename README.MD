@@ -11,7 +11,7 @@ Pour télécharger dans un autre format, utiliser le premier outil `Avaible vers
 
 ### pytube
 ```bash
-pip install pytub
+pip install pytube
 ```
 ### Colorama
 ```bash
